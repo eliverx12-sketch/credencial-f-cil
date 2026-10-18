@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Screen styles for badge layout containers */
+.a4-grid-2x3 {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .a4-grid-2x3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .a4-grid-2x3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.a4-grid-2x2 {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .a4-grid-2x2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.a4-grid-2x4 {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .a4-grid-2x4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .a4-grid-2x4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.thermal-tag-page {
+  display: block;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm 6mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  header,
+  nav,
+  .print\\:hidden,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  #printable-badges-area {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Grade 2x3 (6 crachás por folha A4) */
+  .a4-grid-2x3 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 95mm) !important;
+    grid-template-rows: repeat(3, 86mm) !important;
+    justify-content: center !important;
+    column-gap: 5mm !important;
+    row-gap: 4.5mm !important;
+    height: 278mm !important;
+    max-height: 278mm !important;
+    box-sizing: border-box !important;
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  .a4-grid-2x3:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  /* Grade 2x2 (4 crachás por folha A4) */
+  .a4-grid-2x2 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 95mm) !important;
+    grid-template-rows: repeat(2, 130mm) !important;
+    justify-content: center !important;
+    column-gap: 6mm !important;
+    row-gap: 6mm !important;
+    height: 278mm !important;
+    max-height: 278mm !important;
+    box-sizing: border-box !important;
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  .a4-grid-2x2:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  /* Grade 2x4 (8 crachás por folha A4) */
+  .a4-grid-2x4 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 95mm) !important;
+    grid-template-rows: repeat(4, 64mm) !important;
+    justify-content: center !important;
+    column-gap: 4mm !important;
+    row-gap: 3.5mm !important;
+    height: 278mm !important;
+    max-height: 278mm !important;
+    box-sizing: border-box !important;
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  .a4-grid-2x4:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  /* Etiqueta individual / Bobina */
+  .thermal-tag-page {
+    display: block !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    margin: 0 auto 5mm auto !important;
+  }
+
+  .thermal-tag-page:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  .page-break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

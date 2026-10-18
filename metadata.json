@@ -1,0 +1,6 @@
+{
+  "name": "Credencia Fácil",
+  "description": "Sistema leve, ágil e profissional de credenciamento de eventos, crachás, leitura de QR Code/código de barras, modo offline e importação/exportação Excel.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
